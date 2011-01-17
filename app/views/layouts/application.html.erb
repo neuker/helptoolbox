@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Helptoolbox</title>
-  <%= stylesheet_link_tag :all %>
+  <title>Myhelptoolbox</title>
+  <%= render 'layouts/stylesheets'%>
   <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag 'coderay' %> 
   <%= csrf_meta_tag %>
 </head>
 <body>
 
-<%= yield %>
+<div id="container">
+	
+<h1><a href="/"><img src="/images/tool.png" alt="MyHelpToolbox" /></a><span>Home</span></h1>
+
+<div id="adminLinks">
+
+</div>
+
+<ul id="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/articles">View all</a></li>
+    <li id="searchItem">
+		<%= form_tag articles_path, :method => 'get' do %>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :name => nil %>
+		<% end %>
+        <!--><form action="/search/index" class="searchForm" method="get">
+          <fieldset>
+              <label>Search: </label>
+              <input id="q" name="q" type="text" value="" />
+              <input name="commit" type="submit" value="search" />
+            </fieldset>
+        </form>-->
+    </li>
+	
+</ul>
+
+<div class="sideBar">
+
+    <div class="tagPanel">
+
+        <h3 id="tagListHeader">Tags</h3>
+
+		
+		
+        <ul class="tagList">
+	
+			<%#= @sidebar %>
+			<% @articles = Article.find( :all, :select => "DISTINCT tags", :order => "tags ASC" ) %>
+			<% for article in @articles %>
+				
+			<% end %>
+			
+
+	    </ul>
+
+    </div>
+
+</div>
+
+<div class="main">
+	
+	<% flash.each do |key, value| %>
+		<div class="flash <%= key %>"><%= value %></div>
+	<% end %>
+	
+	<%= yield %>
+
+</div>
+
+<div id="footer">
+	
+</div>
+
+</div>
 
 </body>
 </html>
+

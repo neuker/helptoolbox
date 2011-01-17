@@ -1,0 +1,11 @@
+<header>
+	<%= link_to logo, root_path %>
+	<nav>
+		<ul>
+			<li><%= link_to "Home", root_path %></li>sfd
+			<% if signed_in? %>
+				<li><%= link_to "ViewAll", current_user %><li>
+			<% end %>
+		</ul>
+	</nav>
+</header>
