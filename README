@@ -8,8 +8,30 @@ annotate
 
 rails generate controller Articles
 
+gem install coderay
+bundle install
 
-heroku
+rails generate controller session
+
+
+
+
+GIT
+git status
+git init
+git add .
+git commit -m "updated"
+git remote add origin
+git push origin master
+
+
+HEROKU
+git push heroku master
+heroku rake db:migrate
+
+heroku console - manipulate data
+
+
 heroku logout - Local credentials cleared.
 
 heroku keys:add /Users/carolinedrexler/.ssh/herokusshkey.pub

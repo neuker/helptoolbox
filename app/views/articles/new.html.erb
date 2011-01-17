@@ -1,0 +1,24 @@
+<%= form_for(@article, :html => { :class => "editForm" }) do |form| %>
+	<p>
+		<%= form.label :title %><br />
+		<%= form.text_field :title %>
+	</p>
+	<p>
+		<%= form.label :desc %><br />
+		<%= form.text_area :desc, :class => 'textareaInputSmall' %>
+	</p>
+	<p>
+		<%= form.label :sourcecode %><br />
+		<%= form.text_area :sourcecode %>
+	</p>
+	<p>
+		<%= form.label :category %><br />
+		<%= form.text_field :category %>
+	</p>
+	<p>
+		<%= form.label :tags %><br />
+		<%= form.text_field :tags %>
+	</p>
+	
+	<%= form.submit %>
+<% end %>
