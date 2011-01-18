@@ -22,7 +22,7 @@ class Article < ActiveRecord::Base
   def self.search(search)
     
     if search
-      find(:all, :conditions => ['Title LIKE ? OR Desc LIKE ? OR sourcecode LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+      find(:all, :conditions => ['title LIKE ? OR desc LIKE ? OR sourcecode LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       find(:all)
     end
