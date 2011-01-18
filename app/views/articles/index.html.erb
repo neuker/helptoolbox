@@ -23,3 +23,7 @@
 
 <% end %>
 
+<% if admin? %>
+	<%= link_to "New", new_article_path %>
+<% end %>
+

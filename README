@@ -13,6 +13,7 @@ bundle install
 
 rails generate controller session
 
+need to remove index.html from public folder
 
 
 
