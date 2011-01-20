@@ -36,3 +36,10 @@ heroku console - manipulate data
 heroku logout - Local credentials cleared.
 
 heroku keys:add /Users/carolinedrexler/.ssh/herokusshkey.pub
+
+
+
+ISSUES
+
+Need to put table names before column name on search:
+find(:all, :conditions => ['articles.title LIKE ? OR articles.desc LIKE ? OR articles.sourcecode LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])

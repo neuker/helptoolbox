@@ -20,7 +20,6 @@ class Article < ActiveRecord::Base
   attr_accessible :title, :desc, :sourcecode, :category, :tags # specifies that only these columns are editable
   
   def self.search(search)
-    
     if search
       find(:all, :conditions => ['articles.title LIKE ? OR articles.desc LIKE ? OR articles.sourcecode LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
     else

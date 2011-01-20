@@ -49,8 +49,13 @@
 			
 				<% if !article.tags.nil? %>
 					<% tags = article.tags.split(",") %>
+					
 					<% for i in 0..tags.length%>
-						<li><%= link_to h(tags[i]), tags[i] %></li>
+						<% tags[i].to_s.strip! %>
+						<% len = tags[i].to_s.length %>
+						<% if len > 0 %>
+						<li><a href="/tags/<%=h(tags[i]) %>"><%= tags[i] %></a></li>
+						<% end %>
 					<% end %>
 				<% end %>
 				<!-- <li><%#= link_to h(article.tags), article.tags %></li> -->

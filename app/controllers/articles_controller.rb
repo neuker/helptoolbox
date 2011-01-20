@@ -14,6 +14,10 @@ class ArticlesController < ApplicationController
     @articles = Article.find(params[:id])
   end
   
+  def tags
+    @article = Article.find(:all, :conditions => ['tags LIKE ?', "%#{params[:id]}%"])
+  end
+  
   def new
     @article = Article.new
   end
@@ -25,6 +29,7 @@ class ArticlesController < ApplicationController
       #:flash => { :success => "#{@article.title} saved." }
       redirect_to @article
     else
+      flash.now[:error] = "Missing data"
       render :new
     end
   end
