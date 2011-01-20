@@ -1,17 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-  before_filter :allow_only_html_requests
-  
+
   before_filter :load_sidebar
-  
-  def allow_only_html_requests
-    if params[:format] && params[:format] != "html"
-      # render :file => "#{RAILS_ROOT}/public/404.html"
-    end
-  end
-  
-  
+
   def load_sidebar
     # @sidebar = "sidebar data"
     
