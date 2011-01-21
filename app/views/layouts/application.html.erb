@@ -48,7 +48,7 @@
 			<% for article in @articles %>
 			
 				<% if !article.tags.nil? %>
-					<% tags = article.tags.split(",") %>
+					<% tags = article.tags.split(",").sort %>
 					
 					<% for i in 0..tags.length%>
 						<% tags[i].to_s.strip! %>
