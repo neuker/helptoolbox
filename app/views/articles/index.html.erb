@@ -8,7 +8,7 @@
 		<%= article.sourcecode %>
 	</div> -->
 	<div class="tags">
-		Tags: <%= article.tags %>
+		<p>Tags: <span><%= article.tags %></span></p>
 	</div>
 
 	<% if admin? %>
@@ -21,6 +21,8 @@
 <% end %>
 
 <% if admin? %>
+<p class="adminActions">
 	<%= link_to "New", new_article_path %>
+</p>
 <% end %>
 

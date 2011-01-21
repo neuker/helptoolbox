@@ -1,4 +1,4 @@
-<h2><%=link_to(h(@articles.title), article_path(@articles)) %></h2>
+<h2><%= @articles.title %></h2>
 
 <p><%= @articles.desc %></p>
 
@@ -8,5 +8,5 @@
 </div>
 
 <div class="tags">
-	Tags: <%= @articles.tags %>
+	<p>Tags: <span><%= @articles.tags %></span></p>
 </div>
