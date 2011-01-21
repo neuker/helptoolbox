@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   
   def show
     @articles = Article.find(params[:id])
+    @title = @articles.title
   end
   
   def tags
