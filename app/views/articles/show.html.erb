@@ -1,12 +1,16 @@
-<h2><%= @articles.title %></h2>
+<div class="show">
+	
+	<h2><%= @articles.title %></h2>
 
-<p><%= @articles.desc %></p>
+	<p><%= @articles.desc %></p>
 
 
-<div class="sourcecode">
-	<%= coderay(raw @articles.sourcecode) %>
-</div>
+	<div class="sourcecode">
+		<%= coderay(raw @articles.sourcecode) %>
+	</div>
 
-<div class="tags">
-	<p>Tags: <span><%= @articles.tags %></span></p>
+	<div class="tags">
+		<p>Tags: <span><%= @articles.tags %></span></p>
+	</div>
+
 </div>
