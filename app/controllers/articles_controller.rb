@@ -3,6 +3,9 @@ class ArticlesController < ApplicationController
   
   def index
     @articles = Article.search(params[:search])
+    @tags =  Tag.find( :all, :select => "DISTINCT name", :order => "name ASC" )
+    
+    # @tags2 = Tag.find_all_by_article_id(@articles)
     # if params[:search]
     #       @articles = Article.find(:all, :conditions => ['Desc LIKE ?', "%#{params[:search]}%"])
     #     else
@@ -13,6 +16,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @title = @article.title
+    @tags = Tag.find_all_by_article_id(@article)
   end
   
   # def tags

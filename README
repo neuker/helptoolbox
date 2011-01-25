@@ -16,6 +16,8 @@ rails generate controller session
 need to remove index.html from public folder
 
 
+<p>lkjsdf<%= Rails.logger.info("PARAMS: #{params.inspect}") %></p>
+
 
 GIT
 git status
@@ -43,3 +45,28 @@ ISSUES
 
 Need to put table names before column name on search:
 find(:all, :conditions => ['articles.title LIKE ? OR articles.desc LIKE ? OR articles.sourcecode LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+
+
+BACKUP STUFF
+
+<% tagsarray = [] %>
+<% @articles = Article.find( :all, :select => "DISTINCT tags", :order => "tags ASC" ) %>
+<% for article in @articles %>
+
+
+
+	<% if !article.tags.nil? %>
+		<% tags = article.tags.split(",").sort %>
+		<% tagsarray << article.tags.split(",").sort %>
+		
+		<% for i in 0..tags.length%>
+			<% tags[i].to_s.strip! %>
+			<% len = tags[i].to_s.length %>
+			<% if len > 0 %>
+			<li><a href="/tags/<%=h(tags[i]) %>"><%= tags[i] %></a></li>
+			<% end %>
+		<% end %>
+	<% end %>
+	
+	<!-- <li><%#= link_to h(article.tags), article.tags %></li> -->
+<% end %>
