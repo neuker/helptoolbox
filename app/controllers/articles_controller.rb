@@ -11,16 +11,17 @@ class ArticlesController < ApplicationController
   end
   
   def show
-    @articles = Article.find(params[:id])
-    @title = @articles.title
+    @article = Article.find(params[:id])
+    @title = @article.title
   end
   
-  def tags
-    @article = Article.find(:all, :conditions => ['tags LIKE ?', "%#{params[:id]}%"])
-  end
+  # def tags
+  #     @article = Article.find(:all, :conditions => ['tags LIKE ?', "%#{params[:id]}%"])
+  #   end
   
   def new
     @article = Article.new
+    3.times { @article.tags.build }
   end
   
   def create

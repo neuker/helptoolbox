@@ -1,23 +1,27 @@
 <h1>Edit</h1>
 
-<%= form_for(@article, :html => { :class => "editForm" }) do |form| %>
+<%= form_for(@article, :html => { :class => "editForm" }) do |f| %>
 <p>
-	<%= form.label :title %><br />
-	<%= form.text_field :title %>
+	<%= f.label :title %><br />
+	<%= f.text_field :title %>
 </p>
 <p>
-	<%= form.label :desc %><br />
-	<%= form.text_area :desc, :class => 'textareaInputSmall' %>
+	<%= f.label :desc %><br />
+	<%= f.text_area :desc, :class => 'textareaInputSmall' %>
 </p>
 <p>
-	<%= form.label :sourcecode %><br />
-	<%= form.text_area :sourcecode %>
+	<%= f.label :sourcecode %><br />
+	<%= f.text_area :sourcecode %>
 </p>
-<p>
-	<%= form.label :tags %> (comma separated)<br />
-	<%= form.text_field :tags %>
-</p>
-	<div class="actions">
-		<%= form.submit "Update" %>
-	</div>
+
+<%= f.fields_for :tags do |builder| %>
+	<%= render 'tag_fields', :f => builder %>
+<% end %>
+
+<p><%= link_to_add_fields "Add Tag", f, :tags %></p>
+
+<div class="actions">
+	<%= f.submit "Update" %>
+</div>
+
 <% end %>

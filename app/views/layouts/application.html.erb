@@ -3,7 +3,7 @@
 <head>
   <title><%= title %></title>
   <%= render 'layouts/stylesheets'%>
-  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag :defaults, :cache => true %>
   <%= stylesheet_link_tag 'coderay' %> 
   <%= csrf_meta_tag %>
 </head>
@@ -44,11 +44,16 @@
         <ul class="tagList">
 	
 			<%#= @sidebar %>
+			
+			<% tagsarray = [] %>
 			<% @articles = Article.find( :all, :select => "DISTINCT tags", :order => "tags ASC" ) %>
 			<% for article in @articles %>
 			
+			
+			
 				<% if !article.tags.nil? %>
 					<% tags = article.tags.split(",").sort %>
+					<% tagsarray << article.tags.split(",").sort %>
 					
 					<% for i in 0..tags.length%>
 						<% tags[i].to_s.strip! %>
@@ -58,6 +63,7 @@
 						<% end %>
 					<% end %>
 				<% end %>
+				
 				<!-- <li><%#= link_to h(article.tags), article.tags %></li> -->
 			<% end %>
 			

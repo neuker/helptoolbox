@@ -15,9 +15,12 @@
 
 class Article < ActiveRecord::Base
   
+  has_many :tags, :dependent => :destroy
+  accepts_nested_attributes_for :tags, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
+  
   validates_presence_of :title
   
-  attr_accessible :title, :desc, :sourcecode, :category, :tags # specifies that only these columns are editable
+  attr_accessible :title, :desc, :sourcecode, :category, :tags_attributes, :tags # specifies that only these columns are editable
   
   def self.search(search)
     if search
