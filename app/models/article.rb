@@ -20,7 +20,7 @@ class Article < ActiveRecord::Base
   
   validates_presence_of :title
   
-  attr_accessible :title, :desc, :sourcecode, :category, :tags_attributes, :tags # specifies that only these columns are editable
+  attr_accessible :title, :desc, :sourcecode, :category, :tags_attributes # specifies that only these columns are editable
   
   def self.search(search)
     if search

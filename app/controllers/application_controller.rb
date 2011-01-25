@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
     
     # @sidebar = Article.all(:select => "tags")
     # @sidebar = Article.find( :all, :select => "tags", :order => "tags ASC" )
-    sidebar = Article.find( :all, :select => "tags", :order => "tags ASC" )
-    sidebar = Article.find_by_sql "select tags from articles"
+    # sidebar = Article.find( :all, :select => "tags", :order => "tags ASC" )
+    # sidebar = Article.find_by_sql "select tags from articles"
     
     sideData = "";
     # for i in (0..sidebar.length)
@@ -17,11 +17,11 @@ class ApplicationController < ActionController::Base
     #   sideData = sideData + "\n" + sidebar[i].inspect + " i = " + i.to_s 
     # end
     
-    sidebar.each do |key, value|
-      sideData = sideData + "... " + value.to_s
-  	end
-    
-    @sidebar = sideData
+    # sidebar.each do |key, value|
+    #      sideData = sideData + "... " + value.to_s
+    #   end
+    #    
+    #    @sidebar = sideData
     
     # @sidebar = sidebar.length
     # for article in @articles do
