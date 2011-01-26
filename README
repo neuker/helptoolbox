@@ -27,6 +27,9 @@ git commit -m "updated" (use -a to automatically stage modified and deleted file
 git remote add origin
 git push origin master
 
+drop column
+run rake db:migrate -- if it doesn't work may have to run rake db:migrate:redo
+
 
 HEROKU
 git push heroku master

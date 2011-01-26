@@ -64,6 +64,7 @@ form.searchForm input[type=text] { width: 150px; border: solid 1px #333; }
 form.searchForm input[type=submit] { border: solid 1px #333; margin-left: 8px;  }
 
 /* Tag List */
+.tags { margin-top: 30px; }
 .tags p { padding: 0; margin: 0; color: #999;}
 .tags p span { color: #000; ;}
 h3#tagListHeader { font-size: 1em; font-weight: normal; margin-bottom: 4px; }
