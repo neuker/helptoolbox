@@ -8,7 +8,7 @@
 		<%= coderay(raw @article.sourcecode) %>
 	</div>
 
-	<div class="tags">
+	<div class="tags tagsShowPage">
 		<p>Tags: <span>
 			<% for tag in @tags %>
 				<%=h tag.name %> | 
