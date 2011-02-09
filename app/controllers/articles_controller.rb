@@ -25,7 +25,8 @@ class ArticlesController < ApplicationController
   
   def new
     @article = Article.new
-    3.times { @article.tags.build }
+    2.times { @article.tags.build }
+    5.times { @article.assets.build }
   end
   
   def create
@@ -42,6 +43,7 @@ class ArticlesController < ApplicationController
   
   def edit
     @article = Article.find params[:id]
+    5.times { @article.assets.build }
   end
   
   def update

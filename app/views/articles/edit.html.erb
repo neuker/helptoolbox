@@ -1,6 +1,6 @@
 <h1>Edit</h1>
 
-<%= form_for(@article, :html => { :class => "editForm" }) do |f| %>
+<%= form_for(@article, :html => { :class => "editForm", :multipart => true }) do |f| %>
 <p>
 	<%= f.label :title %><br />
 	<%= f.text_field :title %>
@@ -20,7 +20,30 @@
 
 <p><%= link_to_add_fields "Add Tag", f, :tags %></p>
 
-<div class="actions">
+<p>
+	<%= f.fields_for :assets do |asset| %>
+		<% if asset.object.new_record? %>
+			<div class="formrow">
+				<%= asset.file_field :image %>
+			</div>
+		<% end %>
+	<% end %>
+</p>
+<div class="paperclipExistingFiles" style="clear: both;">
+	<%= f.fields_for :assets do |asset| %>
+		<% unless asset.object.new_record? %>
+			<div class="thumbnail">
+				<div style="float: left; width: 500px;"><%= link_to( image_tag(asset.object.image.url(:original)), asset.object.image.url(:original)) %>
+				</div>
+				<div style="float: left; width: 40px;">
+				<%= asset.check_box :_destroy %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
+<div class="actions" style="clear: both;">
 	<%= f.submit "Update" %>
 </div>
 

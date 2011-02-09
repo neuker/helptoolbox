@@ -28,7 +28,9 @@ git remote add origin
 git push origin master
 
 drop column
-run rake db:migrate -- if it doesn't work may have to run rake db:migrate:redo
+rails generate migration RemovescreenshotFromArticle screenshot:string
+
+rake db:migrate -- if it doesn't work may have to run rake db:migrate:redo
 
 
 HEROKU

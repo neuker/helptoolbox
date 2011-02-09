@@ -1,0 +1,14 @@
+ development:
+ access_key_id: 0ND2QTF0KBVTVTY1DJ02
+ secret_access_key: 38GeLx4IvoCtLyeyW9KHKhlD7Lqgxxdq07m7+g95
+ bucket: s3imagesz
+ 
+ test:
+ access_key_id: 0ND2QTF0KBVTVTY1DJ02
+ secret_access_key: 38GeLx4IvoCtLyeyW9KHKhlD7Lqgxxdq07m7+g95
+ bucket: s3imagesz
+
+ production:
+ access_key_id: 0ND2QTF0KBVTVTY1DJ02
+ secret_access_key: 38GeLx4IvoCtLyeyW9KHKhlD7Lqgxxdq07m7+g95
+ bucket: s3imagesz

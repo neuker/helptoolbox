@@ -31,6 +31,10 @@ GEM
     annotate-models (1.0.4)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     builder (2.1.2)
     coderay (0.9.6)
     diff-lcs (1.1.2)
@@ -49,6 +53,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     nokogiri (1.4.3.1)
+    paperclip (2.3.8)
+      activerecord
+      activesupport
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -90,15 +97,18 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    xml-simple (1.0.14)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   annotate-models (= 1.0.4)
+  aws-s3
   coderay
   factory_girl_rails (= 1.0)
   faker (= 0.3.1)
+  paperclip
   rails (= 3.0.1)
   rspec (= 2.0.0.beta.18)
   rspec-rails (= 2.0.0.beta.18)

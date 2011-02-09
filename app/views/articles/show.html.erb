@@ -1,5 +1,7 @@
 <div class="show">
 	
+	<%= form_for(@article, :html => { :class => "editForm", :multipart => true }) do |f| %>
+	
 	<h2><%= @article.title %></h2>
 
 	<p><%= @article.desc %></p>
@@ -7,6 +9,8 @@
 	<div class="sourcecode">
 		<%= coderay(raw @article.sourcecode) %>
 	</div>
+	
+	<%#= image_tag @article.screenshot.url %>
 
 	<div class="tags tagsShowPage">
 		<p>Tags: <span>
@@ -15,5 +19,26 @@
 			<% end %>
 		</span></p>
 	</div>
-
+	
+	<div class="paperclipNewFiles">
+		<%= f.fields_for :assets do |asset| %>
+			<% if asset.object.new_record? %>
+				<div class="formrow">
+					<%= asset.file_field :image %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div class="paperclipExistingFiles">
+		<%= f.fields_for :assets do |asset| %>
+			<% unless asset.object.new_record? %>
+				<div class="thumbnail">
+					<%= link_to( image_tag(asset.object.image.url(:original)), asset.object.image.url(:original)) %>
+				</div>
+			<% end %>
+		<% end %>
+		
+	</div>
+<% end %>
 </div>
