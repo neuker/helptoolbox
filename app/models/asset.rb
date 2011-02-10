@@ -18,6 +18,11 @@ class Asset < ActiveRecord::Base
   belongs_to :article
     
   has_attached_file :image,
+  :styles => {
+  :thumb  => "100x100",
+  :medium => "200x200",
+  :large => "600x400"
+  },
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   :path => ":attachment/:id/:basename.:extension",
