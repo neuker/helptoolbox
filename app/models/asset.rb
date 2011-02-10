@@ -17,6 +17,7 @@ class Asset < ActiveRecord::Base
 
   belongs_to :article
     
+  # styles section doesn't work on localhost
   has_attached_file :image,
   :styles => {
   :thumb  => "100x100",
