@@ -19,7 +19,6 @@ class Asset < ActiveRecord::Base
     
   # styles section doesn't work on localhost
   has_attached_file :image,
-  :styles => { :small  => "100x100>" },
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   :path => ":attachment/:id/:basename.:extension",

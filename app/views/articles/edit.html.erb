@@ -33,7 +33,7 @@
 	<%= f.fields_for :assets do |asset| %>
 		<% unless asset.object.new_record? %>
 			<div class="thumbnail">
-				<div style="float: left; width: 500px;"><%= link_to( image_tag(asset.object.image.url(:original)), asset.object.image.url(:small)) %>
+				<div style="float: left; width: 500px;"><%= link_to( image_tag(asset.object.image.url(:original)), asset.object.image.url(:thumb)) %>
 				</div>
 				<div style="float: left; width: 40px;">
 				<%= asset.check_box :_destroy %>
