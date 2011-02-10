@@ -57,6 +57,11 @@ div#footer {
 	clear: both;
 }
 
+.paperclipExistingFiles .displayImage * {
+	margin: 30px 0;
+	text-align: left;
+}
+
 /* Search Form */
 form.searchForm { margin: 2px 0; padding: 0;  padding: 2px 8px; color: #FFF; height: 20px; }
 form.searchForm * { margin: 2px 0; }

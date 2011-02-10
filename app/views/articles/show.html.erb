@@ -11,14 +11,6 @@
 	</div>
 	
 	<%#= image_tag @article.screenshot.url %>
-
-	<div class="tags tagsShowPage">
-		<p>Tags: <span>
-			<% for tag in @tags %>
-				<%=h tag.name %> | 
-			<% end %>
-		</span></p>
-	</div>
 	
 	<div class="paperclipNewFiles">
 		<%= f.fields_for :assets do |asset| %>
@@ -33,12 +25,21 @@
 	<div class="paperclipExistingFiles">
 		<%= f.fields_for :assets do |asset| %>		
 			<% unless asset.object.new_record? %>
-				<div class="thumbnail">
+				<div class="displayImage">
 					<%= link_to( image_tag(asset.object.image.url(:original)), asset.object.image.url(:original)) %>
 				</div>
 			<% end %>
 		<% end %>
 		
 	</div>
+	
+	<div class="tags tagsShowPage">
+		<p>Tags: <span>
+			<% for tag in @tags %>
+				<%=h tag.name %> | 
+			<% end %>
+		</span></p>
+	</div>
+	
 <% end %>
 </div>
