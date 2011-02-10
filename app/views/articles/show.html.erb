@@ -31,12 +31,7 @@
 	</div>
 	
 	<div class="paperclipExistingFiles">
-		<%= f.fields_for :assets do |asset| %>
-		
-			<%= image_tag asset.object.image.url %>
-			<%= image_tag asset.object.image.url(:medium) %>
-			<%= image_tag asset.object.image(:thumb) %>
-		
+		<%= f.fields_for :assets do |asset| %>		
 			<% unless asset.object.new_record? %>
 				<div class="thumbnail">
 					<%= link_to( image_tag(asset.object.image.url(:original)), asset.object.image.url(:original)) %>
